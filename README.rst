@@ -82,3 +82,13 @@ Tools used in rendering this package:
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+
+
+Trivia
+------
+In line with many dreipol projects named after real or fictional characters of the italian mob in america, the name of this package is inspired by Edward `Easy Eddie` J.`O'Hare. ::
+
+    It is believed O'Hare directed investigator Wilson to the Capone bookkeeper who became a key witness at the 1931 trial, and also helped break the code used in the ledgers by Capone's bookkeepers.*
+
+
+*`Wikipedia <https://en.wikipedia.org/wiki/Edward_J._O%27Hare/>`_
