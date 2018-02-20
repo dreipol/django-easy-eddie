@@ -33,12 +33,9 @@ Configure settings:
 .. code-block:: python
 
     AWS_DEFAULT_REGION = 'eu-west-1'
-    AWS_SNS_ACCESS_KEY_ID = 'foo'
-    AWS_SNS_SECRET_ACCESS_KEY = 'bar'
+    AWS_ACCESS_KEY_ID = 'foo'
+    AWS_SECRET_ACCESS_KEY = 'bar'
 
-    EASYEDDIE_AWS_DEFAULT_REGION = AWS_DEFAULT_REGION
-    EASYEDDIE_AWS_ACCESS_KEY_ID = AWS_SNS_ACCESS_KEY_ID
-    EASYEDDIE_AWS_SECRET_ACCESS_KEY = AWS_SNS_SECRET_ACCESS_KEY
     EASYEDDIE_CLOUD_WATCH_LOG_GROUP_NAMES = [
         'sns/eu-west-1/000000000000/DirectPublishToPhoneNumber',
         'sns/eu-west-1/000000000000/DirectPublishToPhoneNumber/Failure'
@@ -46,7 +43,7 @@ Configure settings:
 
 Migrate your database::
 
-    python manage.py migrate easy_eddie
+    $ python manage.py migrate easy_eddie
 
 Sending text messages (SMS):
 
@@ -71,7 +68,7 @@ Management Command
 This management command can be used to fetch log data from CloudWatch for SMS events. It is probably a good idea to
 use it in any scheduled way (e.g. crontab, celery beat, etc.)::
 
-    python manage.py fetch_cloud_watch_log_events
+    $ python manage.py fetch_cloud_watch_log_events
 
 
 AWS CloudWatch
