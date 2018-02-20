@@ -57,6 +57,14 @@ Sending text messages (SMS):
     send_sms(sender='your_SNS_sender_id', phone_number='your_phone_number', message='foo')
 
 
+Fetching CloudWatch logs of unprocessed SMS events:
+
+.. code-block:: python
+
+    from easy_eddie.report_fetchers import fetch_logs_of_unprocessed_sms_events
+
+    fetch_logs_of_unprocessed_sms_events()
+
 Management Command
 ------------------
 

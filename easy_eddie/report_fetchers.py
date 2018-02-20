@@ -8,6 +8,7 @@ from typing import List
 from easy_eddie.clients import get_boto_client
 from easy_eddie.helpers import get_cloud_watch_filter_pattern, get_cloud_watch_time_tuple_for_sms_events
 from easy_eddie.models import SMSEvent
+from easy_eddie.settings import CLOUD_WATCH_LOG_GROUP_NAMES
 
 
 def fetch_log_events(sms_events: List[SMSEvent], log_group_names: List[str]):
@@ -59,6 +60,11 @@ def fetch_log_events(sms_events: List[SMSEvent], log_group_names: List[str]):
                         sms_event.sns_timestamp = time_zone_aware_timestamp
 
                         sms_event.save()
+
+
+def fetch_logs_of_unprocessed_sms_events():
+    unprocessed_sms_events = SMSEvent.objects.unprocessed()
+    fetch_log_events(sms_events=unprocessed_sms_events, log_group_names=CLOUD_WATCH_LOG_GROUP_NAMES)
 
 
 def get_sms_events_as_chunks(sms_events: List[SMSEvent], chunk_size: int):

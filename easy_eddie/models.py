@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from easy_eddie.managers import SMSEventManager
+
 
 class SMSEvent(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -18,6 +20,8 @@ class SMSEvent(models.Model):
     sns_sms_type = models.CharField(blank=True, max_length=255)
     sns_status = models.CharField(blank=True, max_length=255)
     sns_timestamp = models.DateTimeField(blank=True, null=True)
+
+    objects = SMSEventManager()
 
     class Meta:
         ordering = ['-created']
