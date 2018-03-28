@@ -29,7 +29,7 @@ def get_sms_event_report(sms_events: List[SMSEvent]) -> StringIO:
 
     for sms_event in sms_events:
         csv_writer.writerow([
-            sms_event.sns_timestamp.isoformat(),
+            sms_event.sns_timestamp.isoformat() if sms_event.sns_timestamp else '',
             sms_event.sns_message_id,
             sms_event.sns_status,
             sms_event.sns_phone_carrier,
