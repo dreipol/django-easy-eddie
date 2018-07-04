@@ -1,3 +1,8 @@
+engines:
+  pylint:
+    enabled: true
+    channel: "beta"
+
 plugins:
  radon:
   enabled: true
