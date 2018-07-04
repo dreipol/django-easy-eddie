@@ -2,3 +2,5 @@ engines:
   pylint:
     enabled: true
     channel: "beta"
+    plugins:
+      - django
