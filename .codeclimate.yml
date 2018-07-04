@@ -1,6 +1,3 @@
-engines:
-  pylint:
+plugins:
+  pep8:
     enabled: true
-    channel: "beta"
-    plugins:
-      - django
