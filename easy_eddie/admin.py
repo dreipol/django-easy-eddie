@@ -14,7 +14,7 @@ class SMSEventAdmin(admin.ModelAdmin):
     fieldsets = (
         (_('Meta'), {
             'fields': (('created', 'updated'), ('sns_timestamp', 'fetched_cloud_watch_log'), 'sns_message_id',
-                       'sns_destination')
+                       'sns_destination', 'event_name')
         }),
         (_('Detail'), {
             'fields': (('sns_status', 'sns_sms_type'), 'sns_provider_response', 'sns_phone_carrier', 'sns_price',

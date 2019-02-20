@@ -4,7 +4,8 @@ from easy_eddie.clients import get_boto_client
 from easy_eddie.models import SMSEvent
 
 
-def send_sms(sender: str, phone_number: str, message: str, sms_type: str = 'Transactional') -> Union[SMSEvent, bool]:
+def send_sms(sender: str, phone_number: str, message: str, sms_type: str = 'Transactional',
+             event_name: str = '') -> Union[SMSEvent, bool]:
     client = get_boto_client(service_name='sns')
     response = client.publish(
         MessageAttributes={
@@ -22,6 +23,7 @@ def send_sms(sender: str, phone_number: str, message: str, sms_type: str = 'Tran
     )
 
     if response and response.get('MessageId'):
-        return SMSEvent.objects.create(sns_destination=phone_number, sns_message_id=response['MessageId'])
+        return SMSEvent.objects.create(sns_destination=phone_number, sns_message_id=response['MessageId'],
+                                       event_name=event_name)
 
     return False

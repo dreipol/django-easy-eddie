@@ -1,8 +1,8 @@
 import csv
 from io import StringIO
+from typing import List
 
 from django.utils.translation import ugettext_lazy as _
-from typing import List
 
 from easy_eddie.models import SMSEvent
 
@@ -25,6 +25,7 @@ def get_sms_event_report(sms_events: List[SMSEvent]) -> StringIO:
         _('Provider Response'),
         _('MCC'),
         _('MNC'),
+        _('Event Name'),
     ])
 
     for sms_event in sms_events:
@@ -41,6 +42,7 @@ def get_sms_event_report(sms_events: List[SMSEvent]) -> StringIO:
             sms_event.sns_provider_response,
             sms_event.sns_mcc,
             sms_event.sns_mnc,
+            sms_event.event_name,
         ])
 
     # Seek back to the beginning of the file

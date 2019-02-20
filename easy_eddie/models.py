@@ -20,6 +20,7 @@ class SMSEvent(models.Model):
     sns_sms_type = models.CharField(blank=True, max_length=255)
     sns_status = models.CharField(blank=True, max_length=255)
     sns_timestamp = models.DateTimeField(blank=True, null=True)
+    event_name = models.CharField(blank=True, max_length=255)
 
     objects = SMSEventManager()
 
