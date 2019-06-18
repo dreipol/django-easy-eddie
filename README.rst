@@ -32,6 +32,8 @@ Configure settings:
 
 .. code-block:: python
 
+    # OPTIONALLY SET EASYEDDIE_USE_AWS_PROFILE = True to use local profile and not have to set the next three vars.
+
     AWS_DEFAULT_REGION = 'eu-west-1'
     AWS_ACCESS_KEY_ID = 'foo'
     AWS_SECRET_ACCESS_KEY = 'bar'
